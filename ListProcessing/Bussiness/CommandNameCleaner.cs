@@ -1,8 +1,8 @@
 ﻿namespace ListProcessing.Bussiness
 {
-    using Bussiness.Interfaces;
     using System.Collections.Generic;
     using System.Linq;
+    using Bussiness.Interfaces;
 
     public class CommandNameCleaner : ICommandNameCleaner
     {

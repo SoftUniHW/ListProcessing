@@ -1,5 +1,6 @@
 ﻿namespace ListProcessing
 {
+    using System.Collections.Generic;
     using Bussiness;
     using Bussiness.Interfaces;
     using IO;
@@ -17,9 +18,10 @@
 
             IWriter writer = new ConsoleWriter();
             IReader reader = new ConsoleReader();
-            string commandName = reader.ReadLine();
+            List<string> items = new List<string>() { "space", "separated", "list", "of", "items" };
+            string[] input = reader.ReadLine().Split(' ');
 
-            excerciseExecutor.ExecuteCommand(commandName, writer);
+            excerciseExecutor.ExecuteCommand(input, items, writer);
         }
     }
 }

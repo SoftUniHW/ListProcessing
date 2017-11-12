@@ -1,8 +1,10 @@
 ﻿namespace ListProcessing.Bussiness
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Bussiness.Interfaces;
     using IO.Interfaces;
-    using System;
 
     public class ListExecutor : IListExecutor
     {
@@ -35,10 +37,12 @@
             }
         }
 
-        
-        public void ExecuteCommand(string commandName, IWriter writer)
+        public void ExecuteCommand(string[] input, List<string> items, IWriter writer)
         {
-            string commandResult = this.CommandInterpreter.InterpredCommand(commandName);
+            string commandName = input[0];
+            string[] data = input.Skip(1).ToArray();
+
+            string commandResult = this.CommandInterpreter.InterpredCommand(commandName, items, data);
 
             writer.Write(commandResult, true);
         }

@@ -1,5 +1,4 @@
-﻿
-namespace ListProcessing.Attributes
+﻿namespace ListProcessing.Attributes
 {
     using System;
 

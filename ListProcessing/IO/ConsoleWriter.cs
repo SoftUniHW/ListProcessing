@@ -1,7 +1,7 @@
 ﻿namespace ListProcessing.IO
 {
-    using IO.Interfaces;
     using System;
+    using IO.Interfaces;
 
     public class ConsoleWriter : IWriter
     {

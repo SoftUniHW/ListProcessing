@@ -5,9 +5,9 @@
     using System.Linq;
     using System.Reflection;
     using Attributes;
-    using Bussiness.Commands.Interfaces;
     using Bussiness.Interfaces;
     using Global;
+    using ListProcessing.Bussiness.Commands;
 
     public class CommandInterpreter : ICommandInterpreter
     {
@@ -32,8 +32,14 @@
             }
         }
 
-        public string InterpredCommand(string commandName)
+        public string InterpredCommand(string commandName, List<string> items, string[] data)
         {
+            object[] parameters = new object[]
+            {
+                data,
+                items
+            };
+
             string cleanCommandName = this.CommandNameCleaner.CleanCommandName(commandName).ToLower();
             Type typeOfCommandToCreate = ApplicationContext.CommandTypes.FirstOrDefault(t => t.Name.ToLower().Contains(cleanCommandName));
             if (typeOfCommandToCreate == default(Type))
@@ -41,7 +47,7 @@
                 throw new ArgumentException();
             }
 
-            ICommand command = (ICommand)Activator.CreateInstance(typeOfCommandToCreate);
+            Command command = (Command)Activator.CreateInstance(typeOfCommandToCreate, parameters);
             IEnumerable<FieldInfo> fieldsToInject = typeOfCommandToCreate
                                                     .GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
                                                     .Where(f => f.HasCustomAttribute<InjectAttribute>());
