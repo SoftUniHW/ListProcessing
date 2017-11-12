@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ListProcessing.Bussiness.Commands
+﻿namespace ListProcessing.Bussiness.Commands
 {
-    class ReverseCommand : Command
-    {
+    using System.Collections.Generic;
 
-        public ReverseCommand(List<string> items)
-            : base(items)
+    public class ReverseCommand : Command
+    {
+        public ReverseCommand(string[] data, List<string> items)
+            : base(data, items)
         {
         }
 
@@ -18,6 +15,5 @@ namespace ListProcessing.Bussiness.Commands
 
             return string.Join(" ", this.Items);
         }
-    }
-    
+    }  
 }

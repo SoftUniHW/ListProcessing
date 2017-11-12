@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ListProcessing.Bussiness.Commands
+﻿namespace ListProcessing.Bussiness.Commands
 {
-    class DeleteCommand : Command
-    {
+    using System;
+    using System.Collections.Generic;
 
+    public class DeleteCommand : Command
+    {
         public DeleteCommand(string[] data, List<string> items)
             : base(data, items)
         {
