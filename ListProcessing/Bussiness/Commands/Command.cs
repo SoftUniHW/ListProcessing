@@ -5,6 +5,11 @@
 
     public abstract class Command : ICommand
     {
+        public Command(List<string> items)
+        {
+            this.Items = items;
+        }
+
         public Command(string[] data, List<string> items)
         {
             this.Data = data;
