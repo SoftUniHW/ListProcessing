@@ -12,18 +12,25 @@
 
         public override string Execute()
         {
-            int index = int.Parse(this.Data[0]);
+            int result;
 
-            if (index >= 0 && index <= this.Items.Count-1)
+            if (this.Data.Length == 1 && int.TryParse(this.Data[0], out result) == true)
             {
-                this.Items.RemoveAt(index);
+                int index = int.Parse(this.Data[0]);
+                if (index >= 0 && index <= this.Items.Count - 1)
+                {
+                    this.Items.RemoveAt(index);
+                    return string.Join(" ", this.Items);
+                }
+                else
+                {
+                    return $"Error: invalid index {index}";
+                }
             }
             else
             {
-                Console.WriteLine($"Error: invalid index {index}");
-            }
-
-            return string.Join(" ", this.Items);
+                return "Error: invalid command parameters";
+            }              
         }
     }
 }
