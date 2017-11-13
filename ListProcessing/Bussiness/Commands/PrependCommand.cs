@@ -13,6 +13,11 @@ namespace ListProcessing.Bussiness.Commands
 
         public override string Execute()
         {
+            if (this.Data.Length == 0)
+            {
+                return "Error: invalid command parameters";
+            }
+
             string text = this.Data[0];
 
             this.Items.Insert(0, text);
