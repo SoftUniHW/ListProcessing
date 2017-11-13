@@ -16,7 +16,11 @@
 
             if (index < 0 || index > this.Items.Count)
             {
-                return ($"Error: invalid index {index}");
+                return $"Error: invalid index {index}";
+            }
+            else if (string.IsNullOrEmpty(text))
+            {
+                return "Error: invalid command parameters";
             }
             else
             {

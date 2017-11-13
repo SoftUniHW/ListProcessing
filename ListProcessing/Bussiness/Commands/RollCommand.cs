@@ -25,9 +25,13 @@
 
                 return string.Join(" ", this.Items);
             }
-            else
+            else if (this.Data[0].ToLower() == "right")
             {
                 return "DO RIGHT";
+            }
+            else
+            {
+                return "Error: invalid command parameters";
             }
         }
     }
