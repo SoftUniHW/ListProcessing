@@ -44,7 +44,7 @@
                 //.ToLower();
             Type typeOfCommandToCreate = ApplicationContext.CommandTypes.FirstOrDefault(t => t.Name
                 .ToLower()
-                .Contains(cleanCommandName));
+                .StartsWith(cleanCommandName));
             if (typeOfCommandToCreate == default(Type))
             {
                 throw new ArgumentException();
