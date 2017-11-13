@@ -40,7 +40,7 @@
         private static List<string> InputStringCreator()
         {
             IReader reader = new ConsoleReader();
-            List<string> listOfStrings = reader.ReadLine().Split(' ').ToList();
+            List<string> listOfStrings = reader.ReadLine().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             return listOfStrings;
         }
