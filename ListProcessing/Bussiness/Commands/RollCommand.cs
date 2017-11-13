@@ -12,6 +12,11 @@
 
         public override string Execute()
         {
+            if (this.Data.Length == 0)
+            {
+                return "Error: invalid command parameters";
+            }
+
             if (this.Data[0].ToLower() == "left")
             {
                 string firstItem = this.Items.First();
@@ -31,7 +36,7 @@
             }
             else
             {
-                return "Error: invalid command parameters";
+                return "Error: invalid command";
             }
         }
     }

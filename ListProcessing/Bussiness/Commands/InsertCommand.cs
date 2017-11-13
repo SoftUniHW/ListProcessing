@@ -11,6 +11,11 @@
 
         public override string Execute()
         {
+            if (this.Data.Length < 2)
+            {
+                return "Error: invalid command parameters";
+            }
+
             int index = int.Parse(this.Data[0]);
             string text = this.Data[1];
 
