@@ -40,8 +40,11 @@
                 items
             };
 
-            string cleanCommandName = this.CommandNameCleaner.CleanCommandName(commandName).ToLower();
-            Type typeOfCommandToCreate = ApplicationContext.CommandTypes.FirstOrDefault(t => t.Name.ToLower().Contains(cleanCommandName));
+            string cleanCommandName = this.CommandNameCleaner.CleanCommandName(commandName);
+                //.ToLower();
+            Type typeOfCommandToCreate = ApplicationContext.CommandTypes.FirstOrDefault(t => t.Name
+                .ToLower()
+                .Contains(cleanCommandName));
             if (typeOfCommandToCreate == default(Type))
             {
                 throw new ArgumentException();

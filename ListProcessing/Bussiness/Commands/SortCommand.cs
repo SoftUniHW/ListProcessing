@@ -10,6 +10,7 @@
         public SortCommand(string[] data, List<string> items)
             : base(data, items)
         {
+            return;
         }
 
         public override string Execute()
