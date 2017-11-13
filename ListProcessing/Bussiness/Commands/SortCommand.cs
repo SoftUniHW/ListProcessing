@@ -1,9 +1,7 @@
 ﻿namespace ListProcessing.Bussiness.Commands
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
 
     public class SortCommand : Command
     {
@@ -15,11 +13,19 @@
 
         public override string Execute()
         {
-            List<string> sortedList = this.Items.OrderBy(a => a).ToList();
+            if (this.Data.Length == 0)
+            {
 
-            this.Items = sortedList;
+                List<string> sortedList = this.Items.OrderBy(a => a).ToList();
 
-            return string.Join(" ", this.Items);
+                this.Items = sortedList;
+
+                return string.Join(" ", this.Items);
+            }
+            else
+            {
+                return "Error: invalid command";
+            }
         }
     }
 }
