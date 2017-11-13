@@ -11,7 +11,7 @@
 
         public override string Execute()
         {
-            if (this.Data.Length < 2)
+            if (this.Data.Length < 2 || this.Data.Length > 2)
             {
                 return "Error: invalid command parameters";
             }

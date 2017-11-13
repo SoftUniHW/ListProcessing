@@ -12,7 +12,7 @@
 
         public override string Execute()
         {
-            if (this.Data.Length == 0)
+            if (this.Data.Length == 0 || this.Data.Length > 1)
             {
                 return "Error: invalid command parameters";
             }
