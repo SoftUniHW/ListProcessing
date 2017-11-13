@@ -32,7 +32,13 @@
             }
             else if (this.Data[0].ToLower() == "right")
             {
-                return "DO RIGHT";
+                string lastItem = this.Items.Last();
+
+                this.Items.Remove(lastItem);
+                this.Items.Insert(0, lastItem);
+                
+
+                return string.Join(" ", this.Items);
             }
             else
             {
