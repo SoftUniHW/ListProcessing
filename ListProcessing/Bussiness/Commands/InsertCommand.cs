@@ -14,9 +14,16 @@
             int index = int.Parse(this.Data[0]);
             string text = this.Data[1];
 
-            this.Items.Insert(index, text);
+            if (index < 0 || index > this.Items.Count)
+            {
+                return ($"Error: invalid index {index}");
+            }
+            else
+            {
+                this.Items.Insert(index, text);
 
-            return string.Join(" ", this.Items);
+                return string.Join(" ", this.Items);
+            }
         }
     }
 }
